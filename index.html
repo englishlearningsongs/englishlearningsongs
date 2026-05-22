@@ -154,11 +154,14 @@
       transition:all 0.22s;
     }
     .sbtn:hover{transform:translateY(-3px) scale(1.04);filter:brightness(1.1);box-shadow:0 6px 18px rgba(0,0,0,0.2);}
-    .sbtn.sp{background:#1DB954;color:white;}
-    .sbtn.am{background:#FC3C44;color:white;}
-    .sbtn.yt{background:#FF0000;color:white;}
-    .sbtn.bc{background:#1DA0C3;color:white;}
-    .sbtn.td{background:white;color:#000;}
+    .s-red{background:#E8312A;color:white;}
+    .s-orange{background:#F07A20;color:white;}
+    .s-yellow{background:#F6D02A;color:#1a2a3a;}
+    .s-green{background:#4AAE4A;color:white;}
+    .s-teal{background:#3BB8C4;color:white;}
+    .s-blue{background:#FF6B9D;color:white;}
+    .s-purple{background:#7B5EA7;color:white;}
+    .s-purple2{background:#9B4FB8;color:white;}
 
     /* ── ABOUT ── */
     .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
@@ -226,7 +229,6 @@
       </div>
     </div>
     <div class="vid-side">
-      <div class="vid-label">🆕 Latest: The Green Album</div>
       <div class="vid-wrap">
         <iframe src="https://www.youtube.com/embed/videoseries?list=UUlIUB1GL-2Vns7cafFI3hgA" allowfullscreen title="English Learning Songs"></iframe>
       </div>
@@ -268,11 +270,14 @@
     <h2 class="sec-title" style="color:white">Available on all platforms</h2>
     <p class="sec-sub" style="color:rgba(255,255,255,0.72)">Stream our songs wherever you listen to music.</p>
     <div class="stream-grid">
-      <a href="https://open.spotify.com/artist/4iq7rSyUGmhE9bMvzpE3Ha" target="_blank" class="sbtn sp">🎵 Spotify</a>
-      <a href="https://music.apple.com/us/artist/english-learning-songs/1538818765" target="_blank" class="sbtn am">🎵 Apple Music</a>
-      <a href="https://www.youtube.com/c/EnglishLearningSongsKidsSongs" target="_blank" class="sbtn yt">▶ YouTube</a>
-      <a href="https://englishlearningsongs.bandcamp.com/" target="_blank" class="sbtn bc">🎵 Bandcamp</a>
-      <a href="https://listen.tidal.com/artist/22044361" target="_blank" class="sbtn td">🎵 Tidal</a>
+      <a href="https://music.apple.com/us/artist/english-learning-songs/1538818765" target="_blank" class="sbtn s-red">🎵 Apple Music</a>
+      <a href="https://englishlearningsongs.bandcamp.com/" target="_blank" class="sbtn s-orange">🎵 Bandcamp</a>
+      <a href="https://www.deezer.com/us/artist/112388762" target="_blank" class="sbtn s-yellow">🎵 Deezer</a>
+      <a href="https://www.iheart.com/artist/english-learning-songs-35287164" target="_blank" class="sbtn s-green">🎵 iHeart</a>
+      <a href="https://open.spotify.com/artist/4iq7rSyUGmhE9bMvzpE3Ha" target="_blank" class="sbtn s-teal">🎵 Spotify</a>
+      <a href="https://listen.tidal.com/artist/22044361" target="_blank" class="sbtn s-blue">🎵 Tidal</a>
+      <a href="https://www.youtube.com/c/EnglishLearningSongsKidsSongs" target="_blank" class="sbtn s-purple">▶ YouTube</a>
+      <a href="https://music.youtube.com/@EnglishLearningSongs" target="_blank" class="sbtn s-purple2">🎵 YouTube Music</a>
     </div>
   </div>
 </section>
@@ -284,8 +289,8 @@
       <div class="about-text">
         <div class="tag">👋 About Us</div>
         <h2 class="sec-title">Made by brothers, built for learners</h2>
-        <p>English Learning Songs is a project by Julian and Jonah Levine — two brothers who combined their love of education and music to create something special for kids learning English worldwide.</p>
-        <p>Our mission: make songs that are genuinely educational <em>and</em> genuinely fun, drawing on a rich variety of musical styles.</p>
+        <p>English Learning Songs is a project by Julian and Jonah Levine — two brothers who combined their passions to make educational music for young learners around the world.</p>
+        <p>Our aim: make songs that are both educational and fun, drawing on a rich variety of musical styles. And make songs that are enjoyable for listeners of all ages, not just kids.</p>
         <a href="about.html" class="btn btn-y" style="margin-top:0.5rem">Meet the team →</a>
       </div>
       <div class="about-box">
@@ -326,29 +331,30 @@
   document.getElementById('aLogo').src = LOGO_SRC;
   const fi=document.createElement('link');fi.rel='icon';fi.type='image/png';fi.href=ICON_SRC;document.head.appendChild(fi);
 
-  // ── Bubbles ──
-  const colors = ['#FFD93D','#FF6B6B','#6BCB77','#6BCEFF','#C77DFF','#FF9F43','#ffffff'];
+  // ── Floating Music Notes ──
+  const noteChars = ['♩','♪','♫','♬'];
+  const noteColors = ['#FFD93D','#FF6B6B','#6BCB77','#6BCEFF','#C77DFF','#FF9F43','#F0A500','#FF85A1'];
   const canvas = document.getElementById('bubbleCanvas');
-  const heroH = document.querySelector('.hero').offsetHeight;
 
-  function makeBubble() {
-    const b = document.createElement('div');
-    b.className = 'bubble';
-    const size = 18 + Math.random() * 52;
-    const color = colors[Math.floor(Math.random() * colors.length)];
+  function makeNote() {
+    const n = document.createElement('div');
+    n.className = 'bubble';
+    n.textContent = noteChars[Math.floor(Math.random() * noteChars.length)];
+    const size = 1.2 + Math.random() * 2.2;
+    const color = noteColors[Math.floor(Math.random() * noteColors.length)];
     const left = Math.random() * 100;
-    const dur = 9 + Math.random() * 14;
-    const delay = Math.random() * 12;
-    b.style.cssText = `
-      width:${size}px;height:${size}px;left:${left}%;bottom:-${size}px;
-      background:${color};opacity:0;
-      animation-duration:${dur}s;animation-delay:${delay}s;
+    const dur = 8 + Math.random() * 14;
+    const delay = Math.random() * 10;
+    n.style.cssText = `
+      font-size:${size}rem;left:${left}%;bottom:-60px;
+      color:${color};background:none;width:auto;height:auto;border-radius:0;
+      opacity:0;animation-duration:${dur}s;animation-delay:${delay}s;
+      text-shadow:none;
     `;
-    canvas.appendChild(b);
-    // Remove and recreate after animation ends to keep it fresh
-    setTimeout(() => { b.remove(); makeBubble(); }, (dur + delay) * 1000);
+    canvas.appendChild(n);
+    setTimeout(() => { n.remove(); makeNote(); }, (dur + delay) * 1000);
   }
-  for (let i = 0; i < 22; i++) makeBubble();
+  for (let i = 0; i < 22; i++) makeNote();
 
 
 
