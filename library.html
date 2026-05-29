@@ -74,6 +74,12 @@
     .songs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:0.7rem;}
     .sc{background:white;border-radius:13px;padding:0.85rem 1rem;text-decoration:none;color:var(--text);font-family:'Nunito',sans-serif;font-weight:700;font-size:0.88rem;line-height:1.35;box-shadow:0 2px 8px rgba(61,142,222,0.07);border:2px solid transparent;transition:all 0.17s;display:flex;align-items:center;gap:0.5rem;}
     .sc:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(61,142,222,0.15);}
+    .sc-wrap{display:flex;align-items:center;gap:0.4rem;}
+    .sc-with-lyrics{display:flex;align-items:center;justify-content:space-between;gap:0.4rem;padding:0.65rem 0.85rem;}
+    .sc-main{display:flex;align-items:center;gap:0.5rem;text-decoration:none;color:var(--text);font-weight:700;font-size:0.88rem;flex:1;}
+    .sc-main:hover{color:var(--blue);}
+    .lyrics-pill{display:inline-flex;align-items:center;background:#EAF3FF;color:var(--blue);border:2px solid #b5d4f4;border-radius:30px;padding:0.25rem 0.7rem;font-size:0.75rem;font-weight:700;font-family:'Baloo 2',cursive;text-decoration:none;transition:all 0.18s;white-space:nowrap;}
+    .lyrics-pill:hover{background:var(--blue);color:white;border-color:var(--blue);}
     .sc .pd{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.65rem;flex-shrink:0;color:white;}
 
     .t-alpha .cat-head{border-color:var(--teal);}.t-alpha .pd{background:var(--teal);}.t-alpha .sc:hover{border-color:var(--teal);}
@@ -301,7 +307,10 @@
   <div class="cat-sec t-space" data-cat="space" id="cat-space">
     <div class="cat-head"><span class="ce">🚀</span><h2>Space Songs</h2></div>
     <div class="songs-grid">
-      <a href="https://www.youtube.com/watch?v=qqGPhiAlFjU" target="_blank" class="sc"><span class="pd">▶</span>Little Alien</a>
+      <div class="sc sc-with-lyrics">
+        <a href="https://www.youtube.com/watch?v=qqGPhiAlFjU" target="_blank" class="sc-main"><span class="pd">▶</span>Little Alien</a>
+        <a href="little-alien.html" class="lyrics-pill">🎤 lyrics</a>
+      </div>
       <a href="https://www.youtube.com/watch?v=PJYjzSQ9fUg" target="_blank" class="sc"><span class="pd">▶</span>Little Alien Halloween</a>
       <a href="https://www.youtube.com/watch?v=7rV_7H90jpw" target="_blank" class="sc"><span class="pd">▶</span>Planet Dance</a>
     </div>
