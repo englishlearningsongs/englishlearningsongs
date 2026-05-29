@@ -36,7 +36,7 @@
       --blue:#3D8EDE; --blue-dark:#2a6db5; --blue-deeper:#1d4f8a;
       --yellow:#F6D02A; --red:#E8312A; --orange:#F07A20;
       --green:#4AAE4A; --teal:#3BB8C4; --purple:#7B5EA7;
-      --white:#fff; --off-white:#F4FAFF; --text:#1a2a3a; --muted:#556;
+      --white:#fff; --off-white:#F4FAFF; --text:#1a2a3a; --muted:#4a4a5a;
     }
     *{margin:0;padding:0;box-sizing:border-box;}
     body{font-family:'Nunito',sans-serif;background:var(--off-white);color:var(--text);overflow-x:hidden;}
@@ -51,6 +51,7 @@
     .nav-links a{font-family:'Nunito',sans-serif;font-weight:700;font-size:0.9rem;color:rgba(255,255,255,0.9);text-decoration:none;padding:0.4rem 0.85rem;border-radius:20px;transition:all 0.18s;}
     .nav-links a:hover,.nav-links a.active{background:rgba(255,255,255,0.18);color:white;}
     .nav-links a.yt{background:#FF0000;color:white;margin-left:0.3rem;}
+    .nav-links a.sp{background:#1DB954;color:white;margin-left:0.3rem;}
     .nav-links a.yt:hover{background:#cc0000;}
     .ham{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:0.5rem;}
     .ham span{display:block;width:25px;height:2.5px;background:white;border-radius:2px;}
@@ -100,7 +101,7 @@
       display:inline-flex;align-items:center;gap:0.4rem;
       background:rgba(255,255,255,0.14);color:white;border-radius:30px;
       padding:0.3rem 0.9rem;font-family:'Baloo 2',cursive;font-weight:700;
-      font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:1.1rem;
+      font-size:0.85rem;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:1.1rem;
       animation:fadeSlideUp 0.7s ease both;
     }
     .hero-inner h1{
@@ -126,7 +127,7 @@
     .btn-w:hover{background:rgba(255,255,255,0.22);transform:translateY(-3px);}
 
     .vid-side{display:flex;flex-direction:column;animation:fadeSlideUp 0.7s 0.15s ease both;}
-    .vid-label{font-family:'Baloo 2',cursive;font-weight:700;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--yellow);}
+    .vid-label{font-family:'Baloo 2',cursive;font-weight:700;font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--yellow);}
     .vid-wrap{
       border-radius:18px;overflow:hidden;
       box-shadow:0 20px 56px rgba(0,0,0,0.4);aspect-ratio:16/9;background:#000;
@@ -139,12 +140,12 @@
     .stats{background:white;padding:1.4rem 2rem;display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;border-bottom:1px solid #e8f0f8;}
     .stat{text-align:center;font-family:'Baloo 2',cursive;}
     .stat-n{font-size:1.7rem;font-weight:800;color:var(--blue);}
-    .stat-l{font-size:0.77rem;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:0.06em;}
+    .stat-l{font-size:0.85rem;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:0.06em;}
 
     /* ── SECTIONS ── */
     section{padding:5rem 2rem;}
     .wrap{max-width:1100px;margin:0 auto;}
-    .tag{font-family:'Baloo 2',cursive;font-weight:700;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);margin-bottom:0.4rem;}
+    .tag{font-family:'Baloo 2',cursive;font-weight:700;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--blue);margin-bottom:0.4rem;}
     .sec-title{font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(1.75rem,2.8vw,2.4rem);color:var(--text);margin-bottom:0.85rem;}
     .sec-sub{font-size:1.02rem;color:var(--muted);line-height:1.7;max-width:520px;margin-bottom:2.5rem;}
 
@@ -196,7 +197,7 @@
     .face{width:90px;height:90px;border-radius:50%;border:3px solid rgba(255,255,255,0.35);object-fit:cover;transition:transform 0.2s,border-color 0.2s;}
     .face:hover{transform:scale(1.07);border-color:var(--yellow);}
     .tname{font-family:'Baloo 2',cursive;font-weight:800;font-size:1rem;color:white;}
-    .tlink{font-size:0.78rem;color:var(--yellow);text-decoration:none;font-weight:700;font-family:'Nunito',sans-serif;}
+    .tlink{font-size:0.85rem;color:var(--yellow);text-decoration:none;font-weight:700;font-family:'Nunito',sans-serif;}
     .tlink:hover{text-decoration:underline;}
     @keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
     .about-box p{font-family:'Baloo 2',cursive;font-weight:700;font-size:1.02rem;color:white;line-height:1.6;}
@@ -217,6 +218,14 @@
       .ham{display:flex;}
       .nav-links.open{display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:var(--blue);padding:1rem;border-top:1px solid rgba(255,255,255,0.15);gap:0.2rem;}
     }
+
+    /* Accessibility */
+    .skip-link{position:absolute;top:-100px;left:1rem;background:var(--blue);color:white;padding:0.5rem 1rem;border-radius:0 0 8px 8px;font-weight:700;text-decoration:none;z-index:999;transition:top 0.2s;}
+    .skip-link:focus{top:0;}
+    :focus-visible{outline:3px solid var(--yellow);outline-offset:3px;}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:4px;}
+    .nav-links a:focus-visible{outline-color:white;}
+    @media(prefers-reduced-motion:reduce){*{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important;}}
   </style>
   <script type="application/ld+json">
   {
@@ -239,10 +248,11 @@
   <meta name="twitter:image" content="https://englishlearningsongs.com/og-image.png">
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <nav>
   <a class="nav-logo" href="index.html">
-    <img id="navLogo" src="" alt="English Learning Songs">
+    <img id="navLogo" src="" alt="English Learning Songs - Home">
     <span class="nav-logo-text">English Learning<br>Songs</span>
   </a>
   <div class="nav-links" id="nl">
@@ -250,14 +260,16 @@
     <a href="library.html">Library</a>
     <a href="about.html">About Us</a>
     <a href="https://englishlearningsongs.bandcamp.com/" target="_blank">Bandcamp</a>
+    <a href="https://open.spotify.com/artist/4iq7rSyUGmhE9bMvzpE3Ha" target="_blank" class="sp">🎵 Spotify</a>
     <a href="https://www.youtube.com/c/EnglishLearningSongsKidsSongs" target="_blank" class="yt">▶ YouTube</a>
   </div>
-  <div class="ham" onclick="document.getElementById('nl').classList.toggle('open')">
+  <button class="ham" onclick="document.getElementById('nl').classList.toggle('open')" aria-label="Toggle navigation menu" aria-expanded="false">
     <span></span><span></span><span></span>
-  </div>
+  </button>
 </nav>
 <div class="rainbow-bar"></div>
 
+<main id="main-content">
 <div class="hero">
   <div class="bubble-canvas" id="bubbleCanvas"></div>
   <div class="hero-inner">
@@ -269,9 +281,6 @@
         <a href="library.html" class="btn btn-y">🎵 Browse Song Library</a>
         <a href="https://www.youtube.com/c/EnglishLearningSongsKidsSongs" target="_blank" class="btn btn-w">▶ Watch on YouTube</a>
       </div>
-    </div>
-    <div class="vid-side">
-      <iframe style="border:0;width:100%;height:120px;border-radius:12px;margin-top:2rem;" src="https://bandcamp.com/EmbeddedPlayer/album=2632534162/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://englishlearningsongs.bandcamp.com/album/the-green-album">The Green Album by English Learning Songs</a></iframe>
     </div>
   </div>
 </div>
@@ -338,7 +347,7 @@
         <a href="about.html" class="btn btn-y" style="margin-top:0.5rem">Meet the team →</a>
       </div>
       <div class="about-box">
-        <img class="logo-big" id="aLogo" src="" alt="English Learning Songs">
+        <img class="logo-big" id="aLogo" src="" alt="English Learning Songs - Home">
         <p>Jonah &amp; Julian Levine</p>
         <div class="team-photos">
           <div class="team-member">
@@ -357,6 +366,7 @@
   </div>
 </section>
 
+</main>
 <footer>
   <div class="fl">
     <a href="index.html">Home</a>
